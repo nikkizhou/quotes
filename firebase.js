@@ -4,16 +4,14 @@ import { getStorage } from "firebase/storage";
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDslUSipqaXgpBqIHEjsZDjP5cKx5Q5r0c",
-  authDomain: "durable-kingdom-356207.firebaseapp.com",
-  projectId: "durable-kingdom-356207",
-  storageBucket: "durable-kingdom-356207.appspot.com",
-  messagingSenderId: "863293335692",
-  appId: "1:863293335692:web:db6c834193af1cb88d33a9",
-  measurementId: "G-H4BDBTXDZF"
+  apiKey: "AIzaSyDu7b7wvBlPmUAfRpOQbf7bHX1w6w7pE5w",
+  authDomain: "productsnextjs.firebaseapp.com",
+  projectId: "productsnextjs",
+  storageBucket: "productsnextjs.appspot.com",
+  messagingSenderId: "554703687447",
+  appId: "1:554703687447:web:e764bc4f56782be07c7152",
+  measurementId: "G-9P8W8YM757"
 };
-
-
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
