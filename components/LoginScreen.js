@@ -14,7 +14,7 @@ const LoginScreen = () => {
       await signInWithEmailAndPassword(auth, state.email, state.password)
       auth.currentUser && router.push('/quotes')
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   };
   

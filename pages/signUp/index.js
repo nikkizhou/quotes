@@ -16,7 +16,7 @@ const RegisterScreen = () => {
       await updateProfile(auth.currentUser, { displayName: state.name })
       auth.currentUser && router.push('/quotes')
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   };
 
