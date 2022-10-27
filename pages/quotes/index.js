@@ -45,7 +45,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Quotes</h1>
-        <p>My Account: {user?.email}!</p>
+        <p>Welcome, {user?.displayName}!</p>
         <button onClick={() => signOutUser()}>Sign out</button>
         {isLoading ? <h2>Loading... </h2> :  quotes?.map(q => <Quote quote={q} key={q.id}/>)}
       </main>

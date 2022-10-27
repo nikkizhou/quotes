@@ -1,5 +1,5 @@
 import { auth } from '../../firebase';
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import React, { useState } from 'react'
 import styles from '../../styles/auth.module.css'
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -9,14 +9,15 @@ const RegisterScreen = () => {
   const [state, setState] = useState({ name: '', email: '', password: '' })
   const router = useRouter()
 
-  const register = () => {
-    createUserWithEmailAndPassword(auth, state.email, state.password)
-      .then((authUser) => {
-        authUser.user.displayName = state.name;
-        auth.currentUser && router.push('/')
-      })
-      .catch((err) => { alert(err.message); });
-    
+
+  const register = async () => {
+    try {
+      await createUserWithEmailAndPassword(auth, state.email, state.password)
+      await updateProfile(auth.currentUser, { displayName: state.name })
+      auth.currentUser && router.push('/quotes')
+    } catch (error) {
+      console.log(error);
+    }
   };
 
     return (

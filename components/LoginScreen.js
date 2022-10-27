@@ -8,18 +8,14 @@ import { useRouter } from 'next/router'
 const LoginScreen = () => {
   const [state, setState] = useState({ email: '', password: '' })
   const router = useRouter()
-
-  // useEffect(() => {
-  //   const unsubscribe = auth.onAuthStateChanged((authUser) => navigation.replace(authUser ? 'Home' : 'Login'));
-  //   return unsubscribe;
-  // }, []);
   
-  const signIn = () => {
-    console.log("signIn is working!");
-    signInWithEmailAndPassword(auth, state.email, state.password)
-      .catch((err) => alert(err));
-    console.log(auth.currentUser);
-    auth.currentUser && router.push('/quotes')
+  const signIn = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, state.email, state.password)
+      auth.currentUser && router.push('/quotes')
+    } catch (error) {
+      console.log(error);
+    }
   };
   
   return (
