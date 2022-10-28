@@ -15,7 +15,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">cats quotes!</a>
+          Welcome to < span className={styles.blue}>cats quotes!</span>
         </h1>
         <LoginScreen/>
 
